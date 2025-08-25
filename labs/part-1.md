@@ -1,6 +1,6 @@
 # Part 1, Local Git round trip on GitHub.com
 
-## Objectives
+## 👉 Objectives
 
 * Clone the Wright Brothers repo from GitHub.com using HTTPS
 * Explore commit history and repo status locally
@@ -13,13 +13,13 @@
 * Sync and clean up local branches
 * (Optional) Link an Issue to a PR for automatic closure
 
-## Prerequisites
+## ✅ Prerequisites
 
 * A GitHub repo that contains the Wright Brothers API code.
 * Git installed locally, and you can authenticate with GitHub over HTTPS.
 * .NET SDK installed, so you can build and test the project.
 
-## Duration
+## ⌛ Duration
 * 30 minutes for Objectives
 
 ## 0) Verify tools
@@ -176,4 +176,96 @@ Open a PR for `fix/readme-typo`, verify the “Linked issues” shows the automa
 
 ---
 
-That is Part 1. If this looks good, say the word, and I will deliver **Part 2** with branch protection, a ping endpoint, CODEOWNERS, a PR template, a two-branch workflow that creates a real conflict, and clear steps to resolve it.
+Perfect, Randy. Here’s a clean **Optional Add-Ons** section for Part-1, with full details for just the first two suggestions (branching and diff). You can copy this straight to the end of `part-1.md`.
+
+````markdown
+---
+
+## 🛠 Optional Add-Ons
+
+These exercises are not required but help reinforce Git basics. Try them if you have extra time or want to explore beyond the core lab.
+
+### 1. Branching from Main vs. Branching from Another Branch
+
+So far, you created branches directly from `main`. Sometimes you’ll start a new branch while you’re already on a feature branch. This helps you see how branches can diverge.
+
+1. Make sure you’re on `main` and up to date:
+   ```bash
+   git checkout main
+   git pull
+````
+
+2. Create a new branch from `main`:
+
+   ```bash
+   git checkout -b feature/from-main
+   ```
+
+3. Switch back to `main` and then branch from it:
+
+   ```bash
+   git checkout main
+   git checkout -b feature/second-branch
+   ```
+
+Notice that both new branches point back to `main`.
+
+4. Now try branching **while on a feature branch**:
+
+   ```bash
+   git checkout feature/from-main
+   git checkout -b feature/nested-branch
+   ```
+
+Here, `feature/nested-branch` is created *from* `feature/from-main`, not `main`.
+You can confirm this with:
+
+```bash
+git log --oneline --graph --all
+```
+
+---
+
+### 2. Using Git Diff to Inspect Changes
+
+Before committing, it’s good practice to check exactly what you’re changing. Git provides `diff` commands to see unstaged and staged edits.
+
+1. Edit `README.md` and add a new line:
+
+   ```
+   This is an example of using git diff.
+   ```
+
+2. Run:
+
+   ```bash
+   git diff
+   ```
+
+   This shows the difference between your working directory and the last commit. You’ll see the added line prefixed with a `+`.
+
+3. Stage the file:
+
+   ```bash
+   git add README.md
+   ```
+
+4. Now run:
+
+   ```bash
+   git diff --cached
+   ```
+
+   This shows what’s staged and ready to be committed.
+
+5. Finally, commit:
+
+   ```bash
+   git commit -m "Docs, demonstrate git diff"
+   git push
+   ```
+
+These commands help you review exactly what you’re committing and reduce mistakes.
+
+---
+

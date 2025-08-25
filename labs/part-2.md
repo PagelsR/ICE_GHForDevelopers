@@ -1,6 +1,6 @@
 # Part 2, Branches, Protections, Conflicts, CODEOWNERS, PR Template, Ping
 
-## Objectives
+## 👉 Objectives
 
 * Create branches in browser and terminal
 * Set branch protection on `main`
@@ -10,13 +10,13 @@
 * Add a `CODEOWNERS` file and a `pull_request_template.md`
 * Add a `ping` endpoint to `PlanesController`
 
-## Prerequisites
+## ✅ Prerequisites
 
 * Part 1 is complete
 * You can push to the repo
 * Default branch is `main`
 
-## Duration
+## ⌛ Duration
 * 30 minutes for Objectives
 * 45 minutes for Bonus Labs
 
@@ -259,11 +259,6 @@ git push origin --delete feature/add-ping
   >>>>>>> origin/main
   ```
 
----
-
-Perfect, Randy — here’s the **full Bonus (Advanced Topics)** section written in Markdown so you can drop it straight into the bottom of your `part-2.md` file.
-
-````markdown
 ---
 
 ## 🔥 Bonus Labs (Advanced Topics)
