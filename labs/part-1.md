@@ -1,4 +1,4 @@
-# Part 1, Local Git round trip on GitHub.com
+# Part 1 - Local Git round trip on GitHub.com
 
 ## 👉 Objectives
 
@@ -176,11 +176,6 @@ Open a PR for `fix/readme-typo`, verify the “Linked issues” shows the automa
 
 ---
 
-Perfect, Randy. Here’s a clean **Optional Add-Ons** section for Part-1, with full details for just the first two suggestions (branching and diff). You can copy this straight to the end of `part-1.md`.
-
-````markdown
----
-
 ## 🛠 Optional Add-Ons
 
 These exercises are not required but help reinforce Git basics. Try them if you have extra time or want to explore beyond the core lab.
@@ -269,3 +264,4 @@ These commands help you review exactly what you’re committing and reduce mista
 
 ---
 
+## 🎉 All done!

@@ -1,4 +1,4 @@
-# Part 2, Branches, Protections, Conflicts, CODEOWNERS, PR Template, Ping
+# Part 2- Branches, Protections, and Conflicts
 
 ## 👉 Objectives
 
@@ -362,3 +362,6 @@ They are optional, but highly valuable for teams working at scale.
 ```
 
 ---
+
+## 🎉 All done!
+
