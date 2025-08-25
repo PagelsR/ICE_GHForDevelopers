@@ -20,7 +20,7 @@ This repository provides a hands-on environment for training developers on Git a
 
 ## Prerequisites
 
-Make sure trainees have the following installed and configured:
+Make sure attendees have the following installed and configured:
 
 - **Git**, with https-based authentication to GitHub.
 - **.NET SDK** (version compatible with this project).
@@ -71,6 +71,3 @@ dotnet --version
 * After each step, verify the code runs and tests pass (especially after merge actions).
 * Be prepared to demonstrate conflict resolution live — showing both the GitHub UI and local merge markers.
 
----
-
-Let me know if you'd like any adjustments — like adding more setup details, screenshots, or linking to GitHub Actions workflows or API documentation.
