@@ -12,7 +12,7 @@
 
 ## ✅ Prerequisites
 
-* Part 1 is complete
+* Completion of Part-1 (or prior experience with cloning, branching, committing, pushing, and creating PRs).
 * You can push to the repo
 * Default branch is `main`
 
