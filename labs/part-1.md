@@ -20,7 +20,7 @@
 * .NET SDK installed, so you can build and test the project.
 
 ## Duration
-* 30 minutes
+* 30 minutes for Objectives
 
 ## 0) Verify tools
 

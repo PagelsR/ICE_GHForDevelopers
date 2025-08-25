@@ -17,7 +17,8 @@
 * Default branch is `main`
 
 ## Duration
-* 30 minutes
+* 30 minutes for Objectives
+* 45 minutes for Bonus Labs
 
 ---
 
@@ -257,5 +258,112 @@ git push origin --delete feature/add-ping
   incoming changes
   >>>>>>> origin/main
   ```
+
+---
+
+Perfect, Randy — here’s the **full Bonus (Advanced Topics)** section written in Markdown so you can drop it straight into the bottom of your `part-2.md` file.
+
+````markdown
+---
+
+## 🔥 Bonus Labs (Advanced Topics)
+
+These exercises are optional but demonstrate more advanced GitHub workflows. Try them if you finish early or want to explore real-world practices.
+
+### 1. Enforce Linear History
+Update your branch protection rule on `main`:
+1. Go to **Settings → Branches → main branch rule**.
+2. Enable **Require linear history**.
+3. Save.
+
+**What it does:** PRs can now only be merged using **Squash** or **Rebase**. The “Create a merge commit” option is disabled.  
+Try opening a new branch, making a change, and then opening a PR. You’ll notice the merge options are restricted.
+
+---
+
+### 2. Require Status Checks with GitHub Actions
+Add a simple build workflow in `.github/workflows/build.yml`:
+
+```yaml
+name: Build
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - run: dotnet build --configuration Release
+````
+
+Commit and push this workflow to `main`.
+Then update your branch protection rule:
+
+* **Require status checks to pass before merging**
+* Select the `Build` workflow.
+
+**Test it:**
+
+1. Open a new PR.
+2. Notice that you cannot merge until the `Build` workflow completes successfully.
+
+---
+
+### 3. Expand CODEOWNERS with Teams and Individuals
+
+Edit `.github/CODEOWNERS` to show ownership at both the team and individual level:
+
+```text
+# Controllers owned by the API team
+WrightBrothersApi/Controllers/* @your-org/api-team
+
+# Models require review from specific devs
+WrightBrothersApi/Models/* @dev1 @dev2
+```
+
+Commit and push.
+Now, open a PR that changes both a controller and a model.
+Observe that GitHub automatically requests reviews from both the team and the individuals listed.
+
+---
+
+### 4. Use Draft Pull Requests
+
+When opening a PR, select **Create as draft** instead of “Open pull request.”
+This communicates that the work is not ready for review yet.
+
+**Test it:**
+
+* Open a draft PR.
+* Observe the green merge button is disabled and reviewers cannot approve.
+* Convert it to a regular PR using the “Ready for review” button.
+
+---
+
+### 5. Automate Issue Closure with PR Keywords
+
+Create a new Issue on GitHub.com (for example, “Update documentation”).
+In a PR description or commit message, include:
+
+```
+Fixes #<issue-number>
+```
+
+**Test it:**
+
+* Merge the PR.
+* The linked Issue will automatically close when the PR merges.
+
+---
+
+## Wrap-up
+
+These advanced topics show how GitHub can enforce process consistency (linear history, required checks), improve collaboration (CODEOWNERS, draft PRs), and automate project management (issue auto-closing).
+They are optional, but highly valuable for teams working at scale.
+
+```
 
 ---
