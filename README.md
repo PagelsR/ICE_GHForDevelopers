@@ -9,10 +9,10 @@ The code is a simple .NET Web API named **Wright Brothers API**, accompanied by 
 
 ## How to Use These Labs
 
-- If you’re new to GitHub or want a refresher, start with **Part-1**.  
+- If you’re new to GitHub or want a refresher, start with [Part 1](labs/part-1.md).  
   It covers the full round trip: clone → branch → edit → commit → push → PR → merge → sync.  
 
-- If you already know the basics (cloning, branching, committing, pushing, opening PRs), you can jump straight to **Part-2**.  
+- If you already know the basics (cloning, branching, committing, pushing, opening PRs), you can jump straight to [Part 2](labs/part-2.md).  
   It focuses on collaboration features like branch protection, conflicts, CODEOWNERS, PR templates, and advanced review workflows.  
 
 - **Bonus sections** are included in Part-2 for advanced users who want to explore GitHub Actions, Draft PRs, CODEOWNERS with teams, and issue automation.  

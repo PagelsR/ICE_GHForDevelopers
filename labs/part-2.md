@@ -12,7 +12,7 @@
 
 ## ✅ Prerequisites
 
-* Completion of Part-1 (or prior experience with cloning, branching, committing, pushing, and creating PRs).
+* Completion of [Part 1](labs/part-1.md) (or prior experience with cloning, branching, committing, pushing, and creating PRs).
 * You can push to the repo
 * Default branch is `main`
 
