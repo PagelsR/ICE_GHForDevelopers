@@ -60,10 +60,9 @@ dotnet --version
 
 ## Lab Overview
 
-| Lab        | Focus                                                                                                                 |
-| ---------- | --------------------------------------------------------------------------------------------------------------------- |
-| **Part 1** | Git basics: clone, branch, edit, commit, push, PR, merge, sync                                                        |
-| **Part 2** | Collaboration tools: branch protection, CODEOWNERS, ping endpoint, PR templates, merge conflicts, conflict resolution |
+* [Part 1](labs/part-1.md) focuses on Git basics
+* [Part 2](labs/part-2.md) dives into collaboration tools and workflows.
+
 
 ## Support Tips
 
