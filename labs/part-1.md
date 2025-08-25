@@ -185,10 +185,11 @@ These exercises are not required but help reinforce Git basics. Try them if you 
 So far, you created branches directly from `main`. Sometimes you’ll start a new branch while you’re already on a feature branch. This helps you see how branches can diverge.
 
 1. Make sure you’re on `main` and up to date:
+
    ```bash
    git checkout main
    git pull
-````
+   ``` 
 
 2. Create a new branch from `main`:
 
@@ -213,6 +214,7 @@ Notice that both new branches point back to `main`.
    ```
 
 Here, `feature/nested-branch` is created *from* `feature/from-main`, not `main`.
+
 You can confirm this with:
 
 ```bash
@@ -265,3 +267,7 @@ These commands help you review exactly what you’re committing and reduce mista
 ---
 
 ## 🎉 All done!
+
+Congratulations! You've completed Part 1 and taken your first flight with Git and GitHub. You cloned, branched, committed, pushed, and merged like a true Wright Brother of code!
+
+Keep exploring, keep building, and get ready for even more awesome Git adventures ahead.

@@ -292,7 +292,7 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - run: dotnet build --configuration Release
-````
+```
 
 Commit and push this workflow to `main`.
 Then update your branch protection rule:
@@ -359,9 +359,11 @@ Fixes #<issue-number>
 These advanced topics show how GitHub can enforce process consistency (linear history, required checks), improve collaboration (CODEOWNERS, draft PRs), and automate project management (issue auto-closing).
 They are optional, but highly valuable for teams working at scale.
 
-```
-
 ---
 
 ## 🎉 All done!
+
+Awesome work! You've conquered branching, protection rules, merge conflicts, and advanced GitHub workflows.
+
+ You're now flying high with pro-level Git skills—ready to tackle any repo challenge! Keep pushing boundaries and collaborating like a true code pioneer.
 
