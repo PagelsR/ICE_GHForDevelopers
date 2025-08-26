@@ -221,6 +221,24 @@ You can confirm this with:
 git log --oneline --graph --all
 ```
 
+**5. Explore branch history and references**
+
+Try these commands to visualize branches and see more details:
+
+```bash
+git log --oneline --graph --decorate --all
+git branch -vv
+```
+
+- `--decorate` shows branch and tag names on commits.
+- `git branch -vv` lists branches with their upstream info and last commit.
+
+For even more fun, compare branches with:
+
+```bash
+git show-branch --all
+```
+
 ---
 
 ### 2. Using Git Diff to Inspect Changes
