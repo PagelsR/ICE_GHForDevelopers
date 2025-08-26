@@ -204,7 +204,7 @@ So far, you created branches directly from `main`. Sometimes you’ll start a ne
    git checkout -b feature/second-branch
    ```
 
-Notice that both new branches point back to `main`.
+   Notice that both new branches point back to `main`.
 
 4. Now try branching **while on a feature branch**:
 
@@ -213,31 +213,31 @@ Notice that both new branches point back to `main`.
    git checkout -b feature/nested-branch
    ```
 
-Here, `feature/nested-branch` is created *from* `feature/from-main`, not `main`.
+   Here, `feature/nested-branch` is created *from* `feature/from-main`, not `main`.
 
-You can confirm this with:
+   You can confirm this with:
 
-```bash
-git log --oneline --graph --all
-```
+   ```bash
+   git log --oneline --graph --all
+   ```
 
-**5. Explore branch history and references**
+5. Explore branch history and references**
 
-Try these commands to visualize branches and see more details:
+   Try these commands to visualize branches and see more details:
 
-```bash
-git log --oneline --graph --decorate --all
-git branch -vv
-```
+   ```bash
+   git log --oneline --graph --decorate --all
+   git branch -vv
+   ```
 
-- `--decorate` shows branch and tag names on commits.
-- `git branch -vv` lists branches with their upstream info and last commit.
+   - `--decorate` shows branch and tag names on commits.
+   - `git branch -vv` lists branches with their upstream info and last commit.
 
-For even more fun, compare branches with:
+   For even more fun, compare branches with:
 
-```bash
-git show-branch --all
-```
+   ```bash
+   git show-branch --all
+   ```
 
 ---
 
