@@ -198,7 +198,9 @@ Review your diff in the Files changed tab to confirm only the intended lines cha
 ## 6) Merge the Pull Request
 
 * Since you have branch protection disabled for Part 1, you can merge straight into main.
+
 * Scroll down, and choose the default merge option,**Merge pull request**, then click **Confirm merge**.
+
 * Once you see the message *Pull request successfully merged and closed*, it's safe to delete the branch.
    * Click **Delete branch** to delete it after merge.
 

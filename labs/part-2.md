@@ -124,20 +124,33 @@ git checkout feature/tune-logging
 
 ---
 
+**View your branches on GitHub.com:**  
+1. Go to your repository page on GitHub.com.
+2. Click the **Branch** dropdown near the top left.
+3. You should see `main`, `feature/tune-logging`, and `feature/add-ping` listed.
+4. This confirms your branches were created and pushed successfully.
+
+---
+
 ## 2) Set branch protection on `main` in the browser
 
 Branch protection helps enforce code quality and collaboration standards. It prevents direct pushes to important branches like `main`, requires code review, and can enforce automated checks before merging. This is essential for teams to avoid accidental overwrites, ensure peer review, and maintain a reliable codebase.
 
 In your repo on GitHub.com:
 
-1. Go to **Settings > Branches**
-2. Add a **Ruleset** with branch name pattern `main`
-3. Select these options and save:
+1. Go to **Settings > Rules > Rulesets**
 
-   * Require a pull request before merging
-   * Require approvals, set to 1
-   * Dismiss stale pull request approvals when new commits are pushed
-   * Status checks optional if you do not have Actions yet
+2. Click  **New ruleset**, select **New branch ruleset** to protect the `main` branch.
+
+3. Set **Target branches** by clicking **Add target**, then select **Include default branch**.
+
+4. Select these options:
+
+   * [ ] **Require a pull request before merging**
+   * [ ] **Require approvals**, set to **1**
+   * [ ] **Dismiss stale pull request approvals when new commits are pushed**
+
+5. Click **Create** to save your changes.
 
 ---
 
@@ -186,17 +199,28 @@ This uploads your commit to the remote branch.
 git push
 ```
 
-**Open a Pull Request (PR) from `feature/tune-logging` into `main`:**  
-On GitHub.com, go to your repo's Pull Requests tab and click **New pull request**.
+**Open a Pull Request (PR) from `feature/tune-logging` into `main`:**
 
-- Set the base branch to `main` and the compare branch to `feature/tune-logging`.
-- Title your PR:  
+On GitHub.com, go to your repo's **Pull Requests** tab.
+
+Under section *Compare and review just about anything*, select the compare branch to `feature/tune-logging`.
+
+- Ensure the base branch to `main`.
+
+* Click the **Create pull request** button.
+
+* Title it clearly, for example, `Tune logging for GET /planes`.
+
   ```
   Tune logging for GET /planes
   ```
-- Optionally, add a description explaining why you made this change.  
-  You can use GitHub Copilot to help summarize your PR:  
-  * Click the GitHub Copilot icon, then select **Summary** to auto-generate a description.
+
+* Add a short description manually or use GitHub Copilot to create a summary for you.
+   * Click the GitHub Copilot icon, then select **Summary**.
+
+* Add AI as a reviewer. Under the **Reviewers** section, click the **Request** link next to the GitHub Copilot icon.
+
+* Click the **Create pull request** button.
 
 Leave PR A open for review. This allows others to review your changes and sets up the scenario for a merge conflict in the next steps.
 
@@ -219,7 +243,7 @@ git checkout feature/add-ping
 
 ### 4a) Add a `ping` endpoint to `PlanesController`
 
-Open `WrightBrothersApi/Controllers/PlanesController.cs`, then add this action inside the controller class:
+Open `WrightBrothersApi/Controllers/PlanesController.cs`, add this action inside the controller class inbetween other endpoints:
 
 ```csharp
 [HttpGet("ping")]
@@ -229,7 +253,7 @@ public IActionResult Ping()
 }
 ```
 
-Also change the same logging line (from previous step), but to a different string to set up the conflict:
+Also change the same logging line (from previous step, i.e. line #48), but to a different string to set up the conflict:
 
 ```csharp
 _logger.LogInformation("Retrieving fleet inventory");
@@ -237,21 +261,23 @@ _logger.LogInformation("Retrieving fleet inventory");
 
 ### 4b) Add a CODEOWNERS file
 
-**Make sure you are on your feature branch (`feature/add-ping`) before making changes.**  
-Branch protection on `main` prevents direct changes, so all edits must be made in a feature branch.
-
-Check your current branch:
-```bash
-git branch
-```
-If needed, switch to the branch:
-```bash
-git checkout feature/add-ping
-```
-
 On GitHub.com, navigate to your repository and open the file browser.
 
-**Create a new file at `.github/CODEOWNERS` with this starter content:**
+**Make sure you are working in your `feature/add-ping` branch:**
+1. At the top left, click the **Branch** dropdown.
+2. Select `feature/add-ping` from the list.  
+   If you do not see it, use the search box to find and select `feature/add-ping`.
+
+**To add a new file at `.github/CODEOWNERS`:**
+1. Click the **Add file** button, then select **Create new file**.
+2. Enter `.github/CODEOWNERS` as the filename.
+
+  ```
+  .github/CODEOWNERS
+  ```
+
+3. Paste the starter content below into the editor.
+
 ```text
 # All C# files require review from the API team
 *.cs    @your-org/api-team
@@ -260,13 +286,32 @@ On GitHub.com, navigate to your repository and open the file browser.
 WrightBrothersApi/Controllers/FlightsController.cs @your-org/flights-team
 ```
 
+> [!IMPORTANT]
+> To avoid errors, ensure that every owner listed in your CODEOWNERS file:
+> - Is a valid GitHub username or team.
+> - For teams, use the format `@org/team-name` (replace `org` with your actual organization name).
+> - The team must exist, be publicly visible, and have write access to the repository.
+> - For individuals, use their GitHub username (e.g., `@octocat`).
+> - If you use placeholder names like `@your-org/api-team`, replace them with real team names from your organization.
+> - You can check team names and visibility in your organization settings on GitHub.
+
+> If you see "Unknown owner" errors, double-check the spelling, organization, and permissions for each owner listed.
+
+4. Commit the new file to your feature branch (`feature/add-ping`), not `main`.
+
+5. Click **Commit changes**.
+
 ### 4c) Add a pull request template
 
 **Stay on your feature branch (`feature/add-ping`) for this change.**
 
-On GitHub.com, navigate to your repository and open the file browser.
+**To add a new file at `.github/pull_request_template.md`:**
+1. Click the **Add file** button, then select **Create new file**.
 
-**Create a new file at `.github/pull_request_template.md` with this starter content:**
+2. Enter `.github/pull_request_template.md` as the filename.
+
+3. Paste the starter content below into the editor.
+
 ```markdown
 ## Summary
 Describe what changed and why.
@@ -278,48 +323,62 @@ List how you tested, commands run, and results.
 Any potential risks, and how to revert if needed.
 
 ## Linked Issue on Jira
-Fixes #<issue-number>  <!-- Replace with the actual issue if applicable -->
+Fixes Jira #<issue-number>  <!-- Replace with the actual issue if applicable -->
 ```
+4. Commit the new file to your feature branch (`feature/add-ping`), not `main`.
 
-**Stage your changes:**  
-This command adds all your new and changed files to the staging area, preparing them for commit.
-```bash
-git add WrightBrothersApi/Controllers/PlanesController.cs .github/CODEOWNERS .github/pull_request_template.md
-```
+5. Click **Commit changes**.
 
-**Commit your changes with a descriptive message:**  
-This command saves your staged changes to your feature branch.
-```bash
-git commit -m "Add ping endpoint, adjust logging, add CODEOWNERS and PR template"
-```
+On GitHub.com, go to your repo's **Pull Requests** tab.
 
-**Push your changes to GitHub:**  
-This uploads your commit to the remote feature branch.
-```bash
-git push
-```
+Under section *Compare and review just about anything*, select the compare branch to `feature/add-ping`.
 
-**Open PR B** from `feature/add-ping` into `main`
+- Ensure the base branch to `main`.
 
-On GitHub.com, go to your repo's Pull Requests tab and click **New pull request**.
+* Click the **Create pull request** button.
 
-- Set the base branch to `main` and the compare branch to `feature/add-ping`.
-- Title your PR:  
+* Title it clearly, for example, `Add ping endpoint, adjust logging, add CODEOWNERS and PR template`.
+
   ```
   Add ping endpoint, adjust logging, add CODEOWNERS and PR template
   ```
-- Optionally, use GitHub Copilot to help summarize your PR.
+
+* Add a short description manually or use GitHub Copilot to create a summary for you.
+   * Click the GitHub Copilot icon, then select **Summary**.
+
+* Add AI as a reviewer. Under the **Reviewers** section, click the **Request** link next to the GitHub Copilot icon.
+
+* Click the **Create pull request** button.
 
 ---
 
 ## 5) Merge PR A to create a real conflict in PR B
 
-* Merge **PR A**: “Tune logging for GET /planes” into `main`.
-* Return to **PR B**. You should now see a banner:
+At this stage, you will merge the first pull request (PR A) into `main`. This will introduce a change that conflicts with the work in your second pull request (PR B), allowing you to experience and resolve a real-world merge conflict scenario.
 
-  ```
-  This branch has conflicts that must be resolved
-  ```
+**Steps:**
+1. Click the **Pull Requests** tab in your repository on GitHub.com.
+
+2. You should see two open PRs:  
+   - **PR A**: "Tune logging for GET /planes"  
+   - **PR B**: "Add ping endpoint, adjust logging, add CODEOWNERS and PR template"
+
+3. Click on **PR A** to review it.
+
+4. If GitHub Copilot or other reviewers have made "commit suggestions," feel free to resolve or apply them before merging. This is a great opportunity to practice handling suggested changes in a real workflow.
+
+5. Click **Merge pull request**, then **Confirm merge** to merge it into `main`.
+
+6. Once you see the message *Pull request successfully merged and closed*, it's safe to delete the branch.
+   * Click **Delete branch** to delete it after merge.
+
+7. After merging PR A, return to PR B.  
+   - You will see a banner at the top of PR B indicating a conflict:
+     ```
+     This branch has conflicts that must be resolved
+     ```
+
+8. Click **Resolve conflicts** to begin the conflict resolution process.
 
 ---
 
@@ -513,4 +572,12 @@ They are optional, but highly valuable for teams working at scale.
 Awesome work! You've conquered branching, protection rules, merge conflicts, and advanced GitHub workflows.
 
  You're now flying high with pro-level Git skills—ready to tackle any repo challenge! Keep pushing boundaries and collaborating like a true code pioneer.
+
+> **Troubleshooting:**  
+> If you do not see a merge conflict banner in PR B after merging PR A, check that:
+> - Both branches were created from the same starting commit on `main`.
+> - Both PRs modify the exact same line in the same file.
+> - You did not merge `main` into your feature branch before merging PR A.
+>  
+> If needed, re-create the branches and repeat the steps, ensuring both PRs change the same line in `WrightBrothersApi/Controllers/PlanesController.cs` with different strings.
 
