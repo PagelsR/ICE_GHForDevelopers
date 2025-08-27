@@ -33,13 +33,31 @@ dotnet --version
 
 ---
 
+Got it, Randy. From the screenshot you shared (“Create a new fork” screen in GitHub), here are the **critical steps** attendees would need to do before starting either Part-1 or Part-2. These should go right at the top of each lab as the **starting point**.
+
+---
+
+## 0) 🟢 Starting Point: Fork the Repository
+
+Before beginning this lab, make your own copy of the repository on GitHub:
+
+1. Click **Fork** on the repo page.
+2. Under **Owner**, make sure your GitHub username is selected.
+3. Leave the **Repository name** as suggested (e.g., `IDTC.pipelines`) or customize if needed.
+4. (Optional) Add a short description, e.g., *ICE Digital Trust – Custody pipelines*.
+5. Ensure **“Copy the main branch only”** is checked.
+6. Click **Create fork**.
+
+You now have your own fork of the repository. All lab work will be done inside **your fork**, not the original repository.
+
+
 ## 1) Clone the repository via HTTPS
 
 On GitHub.com, copy the HTTPS URL from the green Code button, then run:
 
 ```bash
-git clone https://github.com/<org-or-user>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/<your-username>/<your-forked-repo>.git
+cd <your-forked-repo>
 ```
 
 Optionally set your Git identity if this is a new machine:
@@ -49,7 +67,7 @@ git config user.name "Your Name"
 git config user.email "you@example.com"
 ```
 
-Confirm the remote is set:
+Verify you are in your fork by running:
 
 ```bash
 git remote -v
