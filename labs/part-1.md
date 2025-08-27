@@ -33,10 +33,6 @@ dotnet --version
 
 ---
 
-Got it, Randy. From the screenshot you shared (“Create a new fork” screen in GitHub), here are the **critical steps** attendees would need to do before starting either Part-1 or Part-2. These should go right at the top of each lab as the **starting point**.
-
----
-
 ## 0) 🟢 Starting Point: Fork the Repository
 
 Before beginning this lab, make your own copy of the repository on GitHub:

@@ -22,7 +22,6 @@
 
 ---
 
-
 ## 0) 🟢 Starting Point: Fork the Repository
 
 Before beginning this lab, make your own copy of the repository on GitHub:
