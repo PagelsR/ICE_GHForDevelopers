@@ -142,19 +142,29 @@ In your repo on GitHub.com:
 
 2. Click  **New ruleset**, select **New branch ruleset** to protect the `main` branch.
 
-3. Set **Target branches** by clicking **Add target**, then select **Include default branch**.
+3. Name it `Protect main branch` or anything you want.
 
-4. Select these options:
+  ```
+  Protect main branch
+  ```
+
+4. Set **Enforcement status** to **Active**.
+
+5. Set **Target branches** by clicking **Add target**, then select **Include default branch**.
+
+6. Select these options:
 
    * [ ] **Require a pull request before merging**
    * [ ] **Require approvals**, set to **1**
    * [ ] **Dismiss stale pull request approvals when new commits are pushed**
 
-5. Click **Create** to save your changes.
+7. Click **Create** to save your changes.
 
 ---
 
 ## 3) Branch A, tune a logging line and open PR A
+
+Return to your terminal window:
 
 **Make sure you are on the correct branch:**  
 Check your current branch to confirm you are on `feature/tune-logging` before making changes.
@@ -259,6 +269,24 @@ Also change the same logging line (from previous step, i.e. line #48), but to a 
 _logger.LogInformation("Retrieving fleet inventory");
 ```
 
+**Stage your change:**  
+This command tells Git to start tracking the changes you made to `PlanesController.cs` and prepares it for commit.
+```bash
+git add WrightBrothersApi/Controllers/PlanesController.cs
+```
+
+**Commit your change with a message:**  
+This command saves your staged changes to the branch with a descriptive message.
+```bash
+git commit -m "Add ping endpoint and adjust logging"
+```
+
+**Push your branch and commit to GitHub:**  
+This command uploads your branch and commit to your repository on GitHub.
+```bash
+git push
+```
+
 ### 4b) Add a CODEOWNERS file
 
 On GitHub.com, navigate to your repository and open the file browser.
@@ -297,9 +325,11 @@ WrightBrothersApi/Controllers/FlightsController.cs @your-org/flights-team
 
 > If you see "Unknown owner" errors, double-check the spelling, organization, and permissions for each owner listed.
 
-4. Commit the new file to your feature branch (`feature/add-ping`), not `main`.
+4. Click **Commit changes** in upper right hand corner to commit.
 
-5. Click **Commit changes**.
+5. Confirm option **Commit directly to the feature/add-ping branch** is selected, not `main`.
+
+6. Click **Commit changes**.
 
 ### 4c) Add a pull request template
 
@@ -308,7 +338,11 @@ WrightBrothersApi/Controllers/FlightsController.cs @your-org/flights-team
 **To add a new file at `.github/pull_request_template.md`:**
 1. Click the **Add file** button, then select **Create new file**.
 
-2. Enter `.github/pull_request_template.md` as the filename.
+2. Since you're already in folder **.github**, enter `pull_request_template.md` as the filename.
+
+  ```
+  pull_request_template.md
+  ```
 
 3. Paste the starter content below into the editor.
 
@@ -325,9 +359,12 @@ Any potential risks, and how to revert if needed.
 ## Linked Issue on Jira
 Fixes Jira #<issue-number>  <!-- Replace with the actual issue if applicable -->
 ```
-4. Commit the new file to your feature branch (`feature/add-ping`), not `main`.
 
-5. Click **Commit changes**.
+4. Click **Commit changes** in upper right hand corner to commit.
+
+5. Confirm option **Commit directly to the feature/add-ping branch** is selected, not `main`.
+
+6. Click **Commit changes**.
 
 On GitHub.com, go to your repo's **Pull Requests** tab.
 
