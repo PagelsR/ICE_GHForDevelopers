@@ -373,7 +373,7 @@ At this stage, you will merge the first pull request (PR A) into `main`. This wi
    * Click **Delete branch** to delete it after merge.
 
 7. After merging PR A, return to PR B.  
-   - You will see a banner at the top of PR B indicating a conflict:
+   - You will see a message near the bottom of PR B indicating a conflict:
      ```
      This branch has conflicts that must be resolved
      ```
@@ -387,7 +387,8 @@ At this stage, you will merge the first pull request (PR A) into `main`. This wi
 ### Option A, Resolve in the browser
 
 1. In PR B, click **Resolve conflicts**
-2. In `PlanesController.cs` you will see markers like:
+
+2. In `PlanesController.cs` you will see markers similar to this:
 
    ```
    <<<<<<< main
@@ -396,59 +397,64 @@ At this stage, you will merge the first pull request (PR A) into `main`. This wi
    _logger.LogInformation("Retrieving fleet inventory");
    >>>>>>> feature/add-ping
    ```
+
 3. Pick a final version, remove the markers, and keep valid code only. For example:
 
    ```csharp
    _logger.LogInformation("Retrieving fleet inventory");
    ```
+   
 4. Mark as resolved, commit the merge, wait for checks if any, then **Merge pull request**.
 
 ### Option B, Resolve locally
 
-**Switch to your feature branch:**  
-This command makes sure you are working on the correct branch.
-```bash
-git checkout feature/add-ping
-```
+1. **Switch to your feature branch:**
+   ```bash
+   git checkout feature/add-ping
+   ```
 
-**Fetch the latest changes from GitHub:**  
-This updates your local repository with the latest commits from the remote.
-```bash
-git fetch origin
-```
+2. **If you have local changes, commit them (recommended):**
+   ```bash
+   git add WrightBrothersApi/Controllers/PlanesController.cs
+   git commit -m "Save local changes before merging"
+   ```
+   *Or, if you do not want to commit, stash them:*
+   ```bash
+   git stash
+   ```
+   > `git stash` temporarily saves your changes so you can safely pull and merge. Restore them later with `git stash pop`.
 
-**Merge the latest `main` into your feature branch:**  
-This command attempts to merge changes from `main` into your branch. If there are conflicting changes, Git will notify you.
-```bash
-git merge origin/main
-```
-You will see `CONFLICT` messages if there are merge conflicts.
+3. **Pull the latest changes for your feature branch:**
+   ```bash
+   git pull
+   ```
 
-**Edit the conflicted file:**  
-Open `WrightBrothersApi/Controllers/PlanesController.cs` in your editor.
+4. **Merge the latest `main` into your feature branch:**
+   ```bash
+   git merge origin/main
+   ```
+   *If there are conflicts, Git will notify you.*
 
-Look for conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`) and resolve the conflict by keeping only the correct `LogInformation` line.
+5. **Edit the conflicted file(s):**
+   - Open `WrightBrothersApi/Controllers/PlanesController.cs` and resolve conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
 
-**Stage the resolved file:**  
-This command marks the conflict as resolved and prepares the file for commit.
-```bash
-git add WrightBrothersApi/Controllers/PlanesController.cs
-```
+6. **Stage and commit the resolved file(s):**
+   ```bash
+   git add WrightBrothersApi/Controllers/PlanesController.cs
+   git commit -m "Resolve logging conflict in PlanesController"
+   ```
 
-**Commit the merge resolution:**  
-This command saves your resolved changes to your branch.
-```bash
-git commit -m "Resolve logging conflict in PlanesController"
-```
+7. **If you stashed changes earlier, restore them:**
+   ```bash
+   git stash pop
+   ```
 
-**Push your changes to GitHub:**  
-This uploads your resolved merge to the remote branch.
-```bash
-git push
-```
+8. **Push your changes to GitHub:**
+   ```bash
+   git push
+   ```
 
-**Return to PR B in GitHub and complete the merge:**  
-Go to your Pull Request on GitHub.com, verify the conflict is resolved, and finish merging.
+9. **Return to PR B in GitHub and complete the merge.**
 
 ---
 
@@ -580,4 +586,5 @@ Awesome work! You've conquered branching, protection rules, merge conflicts, and
 > - You did not merge `main` into your feature branch before merging PR A.
 >  
 > If needed, re-create the branches and repeat the steps, ensuring both PRs change the same line in `WrightBrothersApi/Controllers/PlanesController.cs` with different strings.
+
 
