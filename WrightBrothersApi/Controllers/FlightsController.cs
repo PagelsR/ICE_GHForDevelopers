@@ -162,6 +162,10 @@ public class FlightsController : ControllerBase
     public ActionResult takeFlight(int id, int flightLength)
     {
         var flight = Flights.Find(f => f.Id == id);
+        if (flight == null)
+        {
+            return NotFound("Flight not found.");
+        }
 
         for (int i = 0; i < flightLength; i++)
         {
@@ -176,7 +180,6 @@ public class FlightsController : ControllerBase
                 {
                     fuelConsumption = 2;
                 }
-
 
                 flight.FuelRange -= fuelConsumption;
             }
