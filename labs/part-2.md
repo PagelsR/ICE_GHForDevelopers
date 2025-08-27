@@ -82,17 +82,17 @@ This command creates a new branch called `feature/tune-logging` and switches to 
 git checkout -b feature/tune-logging
 ```
 
-**Push the new branch to GitHub and set it to track the remote branch:**  
-This uploads your branch to GitHub and sets it as the default for future pushes.
-```bash
-git push -u origin feature/tune-logging
-```
+  **Push the new branch to GitHub and set it to track the remote branch:**  
+  This uploads your branch to GitHub and sets it as the default for future pushes.
+  ```bash
+  git push -u origin feature/tune-logging
+  ```
 
-**Switch back to the main branch:**  
-This command moves you to the `main` branch.
-```bash
-git checkout main
-```
+  **Switch back to the main branch:**  
+  This command moves you to the `main` branch.
+  ```bash
+  git checkout main
+  ```
 
 **Create and switch to the second feature branch:**  
 This command creates a new branch called `feature/add-ping` and switches to it.
@@ -100,12 +100,18 @@ This command creates a new branch called `feature/add-ping` and switches to it.
 git checkout -b feature/add-ping
 ```
 
-**Push the new branch to GitHub and set it to track the remote branch:**  
-This uploads your branch to GitHub and sets it as the default for future pushes.
-```bash
-git push -u origin feature/add-ping
-```
+  **Push the new branch to GitHub and set it to track the remote branch:**  
+  This uploads your branch to GitHub and sets it as the default for future pushes.
+  ```bash
+  git push -u origin feature/add-ping
+  ```
 
+  **Switch back to the main branch:**  
+  This command moves you to the `main` branch.
+  ```bash
+  git checkout main
+  ```
+  
 ### Option B, Browser
 
 * Use the branch selector on GitHub.com to create `feature/tune-logging` and `feature/add-ping`.
