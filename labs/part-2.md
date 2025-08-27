@@ -111,7 +111,7 @@ git checkout -b feature/add-ping
   ```bash
   git checkout main
   ```
-  
+
 ### Option B, Browser
 
 * Use the branch selector on GitHub.com to create `feature/tune-logging` and `feature/add-ping`.
@@ -196,6 +196,8 @@ _logger.LogInformation("Debug: GET all ✈✈✈ NO PARAMS ✈✈✈");
 ```csharp
 _logger.LogInformation("API log, fetching all planes");
 ```
+
+**Save your changes.**
 
 **Stage the file:**  
 This command adds your changes to the staging area, preparing them for commit.
@@ -297,7 +299,10 @@ git push
 
 On GitHub.com, navigate to your repository and open the file browser.
 
-**Make sure you are working in your `feature/add-ping` branch:**
+> [!IMPORTANT]  
+> Make sure you are working in your `feature/add-ping` branch:
+
+**Change to your `feature/add-ping` branch:**
 1. At the top left, click the **Branch** dropdown.
 2. Select `feature/add-ping` from the list.  
    If you do not see it, use the search box to find and select `feature/add-ping`.
@@ -531,6 +536,9 @@ Optional local branch cleanup:
 git branch -d feature/tune-logging feature/add-ping
 ```
 - Deletes the local copies of your feature branches.
+
+> [!NOTE] 
+> You only need to run these commands if you did not delete the branches earlier during the PR merge on GitHub.
 
 ```bash
 git push origin --delete feature/tune-logging
