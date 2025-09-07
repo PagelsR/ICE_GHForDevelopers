@@ -2,9 +2,8 @@
 
 ## 👉 Objectives
 
-* Clone the Wright Brothers repo from GitHub.com using HTTPS
+* Clone the Wright Brothers repo from GitHub.com using HTTPS or SSH
 * Explore commit history and repo status locally
-* Build and test the project to confirm the environment works
 * Create a branch (from browser or terminal)
 * Make a safe change (README)
 * Stage, commit, and push the branch
@@ -16,8 +15,7 @@
 ## ✅ Prerequisites
 
 * A GitHub repo that contains the Wright Brothers API code.
-* Git installed locally, and you can authenticate with GitHub over HTTPS.
-* .NET SDK installed, so you can build and test the project.
+* Git installed locally, and you can authenticate with GitHub over HTTPS or SSH.
 
 ## ⌛ Duration
 * 30 minutes for Objectives
@@ -28,12 +26,12 @@ First, open a terminal window:
 
 - **In VSCode:** Press <kbd>Ctrl</kbd> + <kbd>`</kbd> (backtick) or go to **View > Terminal**.
 - **On Windows:** Press <kbd>Win</kbd> + <kbd>R</kbd>, type `cmd`, and press Enter to open Command Prompt.
+- **On Mac:** Press <kbd>Command</kbd> + <kbd> </kbd> (space), type "Terminal" and press Return to open the terminal.
 
 In your terminal, run:
 
 ```bash
 git --version
-dotnet --version
 ```
 
 ---
@@ -52,12 +50,12 @@ Before beginning this lab, make your own copy of the repository on GitHub:
 You now have your own fork of the repository. All lab work will be done inside **your fork**, not the original repository.
 
 
-## 1) Clone the repository via HTTPS
+## 1) Clone the repository via HTTPS or SSH
 
-On GitHub.com, copy the HTTPS URL from the green Code button, then run:
+On GitHub.com, copy the HTTPS or SSH URL from the green Code button, then run:
 
 ```bash
-git clone https://github.com/<your-username>/<your-forked-repo>.git
+git clone <URL>
 cd <your-forked-repo>
 ```
 
@@ -90,13 +88,6 @@ git log --oneline -n 5
 This command shows which files have changes, which are staged, and which are untracked.
 ```bash
 git status
-```
-
-Build and test to confirm the solution compiles on your machine.
-
-```bash
-dotnet build
-dotnet test
 ```
 
 Key paths in this repo include:
@@ -181,7 +172,7 @@ On GitHub.com, from your forked repo, navigate to the "Pull requests" tab in the
 
 * Click the **New pull request** button.
 * Under the section "Compare and review just about anything", Select `chore/readme-note` as the compare branch.
-* Confirm the base branch is `main`.
+* Ensure the org is set to your personal org, and the base branch is `main`.
 * Review the changes in the diff.  
   *The "diff" shows exactly what lines were added, changed, or removed. Double-check that only your intended changes are included.*
 * Click the **Create pull request** button.

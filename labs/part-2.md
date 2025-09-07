@@ -36,12 +36,12 @@ Before beginning this lab, make your own copy of the repository on GitHub:
 You now have your own fork of the repository. All lab work will be done inside **your fork**, not the original repository.
 
 
-## 1) Clone the repository via HTTPS
+## 1) Clone the repository via HTTPS or SSH
 
-On GitHub.com, copy the HTTPS URL from the green Code button, then run:
+On GitHub.com, copy the HTTPS or SSH URL from the green Code button, then run:
 
 ```bash
-git clone https://github.com/<your-username>/<your-forked-repo>.git
+git clone <URL>
 cd <your-forked-repo>
 ```
 
@@ -73,6 +73,7 @@ First, open a terminal window:
 
 - **In VSCode:** Press <kbd>Ctrl</kbd> + <kbd>`</kbd> (backtick) or go to **View > Terminal**.
 - **On Windows:** Press <kbd>Win</kbd> + <kbd>R</kbd>, type `cmd`, and press Enter to open Command Prompt.
+- **On Mac:** Press <kbd>Command</kbd> + <kbd> </kbd> (space), type "Terminal" and press Return to open the terminal.
 
 ### Option A, Terminal
 
@@ -165,6 +166,7 @@ In your repo on GitHub.com:
    * [ ] **Dismiss stale pull request approvals when new commits are pushed**
 
 7. Click **Create** to save your changes.
+8. Note: Before proceeding to the next section, please revert the **Enforcement status** to **Evaluate** 
 
 ---
 
@@ -223,7 +225,7 @@ On GitHub.com, go to your repo's **Pull Requests** tab.
 
 Under section *Compare and review just about anything*, select the compare branch to `feature/tune-logging`.
 
-- Ensure the base branch to `main`.
+- Ensure the org is set to your personal org, and the base branch is set to `main`.
 
 * Click the **Create pull request** button.
 
@@ -381,7 +383,7 @@ On GitHub.com, go to your repo's **Pull Requests** tab.
 
 Under section *Compare and review just about anything*, select the compare branch to `feature/add-ping`.
 
-- Ensure the base branch to `main`.
+- Ensure the org is set to your personal org, and the base branch to `main`.
 
 * Click the **Create pull request** button.
 
@@ -520,16 +522,6 @@ git pull
 ```
 - Updates your local `main` branch with the latest changes from GitHub.
 
-```bash
-dotnet build
-```
-- Builds your project to ensure there are no compilation errors.
-
-```bash
-dotnet test
-```
-- Runs your automated tests to confirm everything works as expected.
-
 Optional local branch cleanup:
 
 ```bash
@@ -637,5 +629,3 @@ Awesome work! You've conquered branching, protection rules, merge conflicts, and
 > - You did not merge `main` into your feature branch before merging PR A.
 >  
 > If needed, re-create the branches and repeat the steps, ensuring both PRs change the same line in `WrightBrothersApi/Controllers/PlanesController.cs` with different strings.
-
-

@@ -4,7 +4,6 @@ repository TBD - ICE_GHForDevelopers
 
 This repository provides a hands-on environment for training developers on Git and GitHub.com workflows.  
 The code is a simple .NET Web API named **Wright Brothers API**, accompanied by two structured labs that guide learners through Git basics, collaboration, branch protection, pull requests, merge conflicts, and advanced workflows.
-
 ---
 
 ## How to Use These Labs
@@ -23,16 +22,14 @@ The code is a simple .NET Web API named **Wright Brothers API**, accompanied by 
 
 Make sure you have the following installed and configured before starting:
 
-- **Git**, with HTTPS-based authentication to GitHub  
-- **.NET SDK** (version compatible with this project)  
+- **Git**, with HTTPS-based or SSH-based authentication to GitHub  
 - A **GitHub account** with permission to push to a new repo and open pull requests  
 - (Optional, but highly recommended) **VS Code / Visual Studio** or any code editor that supports C# and REST APIs.
 
-To verify the installations, run:
+To verify the git installation, run:
 
 ```bash
 git --version
-dotnet --version
 ```
 
 ---
@@ -69,20 +66,13 @@ dotnet --version
    cd <REPO_NAME>
    ```
 
-2. Build and test the project to ensure it runs:
-
-   ```bash
-   dotnet build
-   dotnet test
-   ```
-
-3. Navigate to the `labs` folder:
+2. Navigate to the `labs` folder:
 
    ```bash
    cd labs
    ```
 
-4. Open **part-1.md** if you’re starting from scratch.
+3. Open **part-1.md** if you’re starting from scratch.
    Or open **part-2.md** if you already know the basics.
 
 ---
@@ -97,4 +87,3 @@ dotnet --version
 * Keep lab instructions open in one pane (e.g., terminal or browser) and your editor in another.
 * After each step, verify the code runs and tests pass (especially after merge actions).
 * Be prepared to demonstrate conflict resolution live — showing both the GitHub UI and local merge markers.
-
