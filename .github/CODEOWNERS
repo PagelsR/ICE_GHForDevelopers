@@ -1,0 +1,5 @@
+# All C# files require review from the API team
+*.cs    @your-org/api-team
+
+# Specific ownership example
+WrightBrothersApi/Controllers/FlightsController.cs @your-org/flights-team
