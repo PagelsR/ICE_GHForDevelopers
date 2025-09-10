@@ -4,6 +4,7 @@ repository TBD - ICE_GHForDevelopers
 
 This repository provides a hands-on environment for training developers on Git and GitHub.com workflows.  
 The code is a simple .NET Web API named **Wright Brothers API**, accompanied by two structured labs that guide learners through Git basics, collaboration, branch protection, pull requests, merge conflicts, and advanced workflows.
+
 ---
 
 ## How to Use These Labs
